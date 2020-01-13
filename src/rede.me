@@ -1,0 +1,6 @@
+3、路由中引入文件的写法
+将 import Foo from '@/pages/foo' 写为
+const Foo = () => import('@/pages/foo')
+在打包的时候，自动生成的chunk包名字是 乱码，我们可以指定命名--采用魔法注释
+可增加魔法注释，/* webpackChunkName:'foo' */     foo为指定模块名字
+const Foo = () => import(/* webpackChunkName:'foo' */ '@/pages/foo')
